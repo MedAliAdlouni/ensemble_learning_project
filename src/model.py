@@ -1,13 +1,11 @@
 import numpy as np
-import pandas as pd
 from sklearn.model_selection import StratifiedKFold, train_test_split
 from sklearn.metrics import f1_score, precision_score, recall_score, balanced_accuracy_score
-from sklearn.preprocessing import StandardScaler, MinMaxScaler
+from sklearn.preprocessing import StandardScaler
 from imblearn.over_sampling import SMOTE  # Handling imbalance
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier, BaggingClassifier, GradientBoostingClassifier, StackingClassifier
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.svm import SVC
 from sklearn.base import clone
 import itertools
 import time
@@ -113,8 +111,35 @@ def evaluate_model(model, X_train, y_train, X_test, y_test):
         'Recall': recall,
         'Balanced accuracy': accuracy
     }
+
+# Function to apply model and capture results
+def run_model_on_dataset(model, dataset, i):
+    print(f"Processing dataset {i+1} with sampling: {dataset['sampling']}, model: {model}")
     
+    # Extract train and test sets for the current dataset
+    X_train = dataset['X_train']
+    y_train = dataset['y_train']
+    X_test = dataset['X_test']
+    y_test = dataset['y_test']
+    sampling_method = dataset['sampling']
     
+    # Call the apply_algo function and capture the results
+    best_params, test_scores, elapsed_time = apply_algo(
+        model, X_train, y_train, X_test, y_test, sampling=sampling_method)
+    
+    # Return the results as a dictionary
+    return {
+        'dataset': i+1,
+        'sampling': sampling_method,
+        'model': model,
+        'best_params': best_params,
+        'F1 Score': test_scores['F1 Score'],
+        'Precision': test_scores['Precision'],
+        'Recall': test_scores['Recall'],
+        'Balanced accuracy': test_scores['Balanced accuracy'],
+        'elapsed_time': elapsed_time
+    }
+
 def apply_algo(algo_name, X, y, X_test, y_test, random_state= 1, validation_size=0.1, sampling="oversampling"):
     start_time = time.time()  # Start the timer
     models, hyperparams = get_models(y, sampling=sampling), get_hyperparameters()
