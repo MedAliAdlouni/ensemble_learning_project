@@ -1,0 +1,29 @@
+dataset,sampling,model,best_params,F1 Score,Precision,Recall,Balanced accuracy,elapsed_time
+1.000,none,Penalized Logistic Regression,"{'C': 20, 'max_iter': 10000}",0.653,0.818,0.543,0.765,16.829
+1.000,none,Simple Decision Tree,{'max_depth': 10},0.712,0.793,0.645,0.814,0.734
+1.000,none,Bagging,{'n_estimators': 100},0.784,0.880,0.706,0.848,46.843
+1.000,none,Random Forest,"{'n_estimators': 200, 'max_depth': 20}",0.760,0.894,0.662,0.827,25.717
+1.000,none,Boosting,"{'learning_rate': 0.1, 'n_estimators': 100, 'max_depth': 3}",0.701,0.854,0.594,0.792,23.755
+1.000,none,XGBoost,"{'learning_rate': 0.1, 'n_estimators': 100, 'max_depth': 3}",0.702,0.857,0.594,0.792,1.936
+1.000,none,Stacking,{},0.783,0.874,0.709,0.849,15.400
+2.000,undersampling,Penalized Logistic Regression,"{'C': 30, 'max_iter': 10000}",0.545,0.407,0.822,0.846,4.272
+2.000,undersampling,Simple Decision Tree,{'max_depth': None},0.478,0.334,0.845,0.831,0.247
+2.000,undersampling,Bagging,{'n_estimators': 50},0.617,0.478,0.869,0.883,6.161
+2.000,undersampling,Random Forest,"{'n_estimators': 200, 'max_depth': 20}",0.628,0.491,0.869,0.886,8.588
+2.000,undersampling,Boosting,"{'learning_rate': 0.1, 'n_estimators': 100, 'max_depth': 3}",0.583,0.443,0.851,0.867,6.048
+2.000,undersampling,XGBoost,"{'learning_rate': 0.1, 'n_estimators': 100, 'max_depth': 3}",0.585,0.446,0.848,0.867,0.868
+2.000,undersampling,Stacking,{},0.636,0.499,0.876,0.890,5.200
+3.000,oversampling,Penalized Logistic Regression,"{'C': 40, 'max_iter': 10000}",0.561,0.432,0.802,0.841,43.310
+3.000,oversampling,Simple Decision Tree,{'max_depth': 10},0.678,0.657,0.700,0.829,2.442
+3.000,oversampling,Bagging,{'n_estimators': 100},0.760,0.839,0.695,0.840,155.174
+3.000,oversampling,Random Forest,"{'n_estimators': 200, 'max_depth': 20}",0.763,0.834,0.703,0.844,62.532
+3.000,oversampling,Boosting,"{'learning_rate': 0.2, 'n_estimators': 100, 'max_depth': 3}",0.711,0.751,0.675,0.825,81.535
+3.000,oversampling,XGBoost,"{'learning_rate': 0.1, 'n_estimators': 100, 'max_depth': 3}",0.680,0.667,0.694,0.827,4.040
+3.000,oversampling,Stacking,{},0.766,0.833,0.709,0.847,37.246
+4.000,cost_sensitive,Penalized Logistic Regression,"{'C': 20, 'max_iter': 10000}",0.550,0.418,0.804,0.838,23.886
+4.000,cost_sensitive,Simple Decision Tree,{'max_depth': 10},0.635,0.519,0.819,0.866,0.723
+4.000,cost_sensitive,Bagging,{'n_estimators': 100},0.742,0.897,0.633,0.812,38.116
+4.000,cost_sensitive,Random Forest,"{'n_estimators': 50, 'max_depth': 10}",0.680,0.593,0.796,0.867,14.990
+4.000,cost_sensitive,Boosting,"{'learning_rate': 0.2, 'n_estimators': 100, 'max_depth': 3}",0.703,0.874,0.587,0.789,23.047
+4.000,cost_sensitive,XGBoost,"{'learning_rate': 0.1, 'n_estimators': 100, 'max_depth': 3}",0.618,0.488,0.845,0.872,1.944
+4.000,cost_sensitive,Stacking,{},0.706,0.594,0.869,0.901,16.930
